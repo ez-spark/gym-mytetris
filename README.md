@@ -31,6 +31,12 @@
 
 12 Discrete actions
 
+# Install the environment locally
+
+```
+pip -e install gym-mytetris
+```
+
 # Create a Tetris Training
 
 - go to https://app.ezspark.ai/
