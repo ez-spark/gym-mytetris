@@ -39,13 +39,12 @@ pip -e install gym-mytetris
 
 # Create a Tetris Training
 
-- go to https://app.ezspark.ai/
 - install Pyezspark
 
 ```
 pip install Pyezspark
 ```
-
+- go to https://app.ezspark.ai/
 - Create a new training on the platform for tetris
 - Copy Paste your training public key and training private key in the host.py file
 - run host.py file
