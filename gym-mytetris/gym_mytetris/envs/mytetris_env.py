@@ -4,8 +4,8 @@ from nes_py.wrappers import JoypadSpace
 import gym_tetris
 from gym_tetris.actions import MOVEMENT
 
-# initial state space: 240X256X3
-# custom state space: 20X10
+# initial state dimensions: 240X256X3
+# custom state dimensions: 20X10
 
 class MyTetrisEnv(gym.Env):
     env = None
