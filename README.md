@@ -34,7 +34,7 @@
 # Install the environment locally
 
 ```
-pip -e install gym-mytetris
+pip install -e gym-mytetris
 ```
 
 # Create a Tetris Training
