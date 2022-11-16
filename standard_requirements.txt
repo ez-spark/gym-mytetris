@@ -1,0 +1,3 @@
+- state of the game is a discrete state defined as a list / lists of lists / numpy arrays
+- actions space must be discrete and the actions must be integers and must be a set of numbers that goes from 0 to number of possible actions -1
+- setting the gym functions: step, reset, close

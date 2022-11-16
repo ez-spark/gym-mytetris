@@ -1,0 +1,20 @@
+- game-folder
+      |
+      |
+      |
+      ---- setup.py
+      |
+      ---- game_sub_folder
+	  |			  |
+	  |			  |
+	  |			  |
+	  |			  ---- __init__.py
+	  |			  |
+	  |			  ---- envs
+	  |			  |		|
+	  |			  |		|
+	  |			  |		|
+	  |			  |		---- __init__.py
+	  |			  |		|
+	  |			  |		|
+	  |			  |		---- game.py
