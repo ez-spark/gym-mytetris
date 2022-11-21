@@ -1,2 +1,4 @@
 gym
-gym-tetris
+pygame
+Pyllab
+Pyezspark
