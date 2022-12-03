@@ -5,13 +5,13 @@ import pyllab
 env = gym.make('gym_mytetris:mytetris-v0')
 state = env.reset()
 done = False
+maximum = 500
 def print_state(state):
     for i in range(20):
         for j in range(10):
             print(state[i*10+j],end='')
         print(" ")
-#for i in range(0,3):
-for j in range(29,160):
+for j in range(1,maximum):
     state = env.reset()
     g = pyllab.Genome(str(j)+'.bin',200,4)
     done = False
