@@ -160,7 +160,14 @@ class MyTetrisEnv(gym.Env):
         """
 
         pygame.font.init()
-
+        # DEFINE THE ACTION SPACE
+        self.action_space = gym.spaces.Discrete(4)
+        # DEFINE THE OBSERVATION SPACE
+        self.observation_space = gym.spaces.Dict(
+            {
+                "agent": gym.spaces.Box(0, 20*10-1, shape=(1,), dtype=int),
+            }
+        )
         # GLOBALS VARS
         self.s_width = 800
         self.s_height = 700
