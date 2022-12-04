@@ -40,6 +40,10 @@
 pip install -e gym-mytetris
 ```
 
-# Follow the tutorial
+# Follow our tutorial
 
 https://www.youtube.com/playlist?list=PLZpGGhgjmgrCQLK9tQkzVudG1y8GAgWFb
+
+# Follow the standard gym documentation for creating gym environments:
+
+https://www.gymlibrary.dev/content/environment_creation/
