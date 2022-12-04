@@ -5,7 +5,7 @@ long_description = 'tetris gym environment wrapped to run on ezspark'
 setuptools.setup(
     name = 'gym_mytetris',
     version = '0.0.2',
-    install_requires = ['gym'],
+    install_requires = ['gym', 'pygame'],
     author = 'EzSpark Team',
     author_email = 'team@ezspark.ai',
     long_description = long_description,
