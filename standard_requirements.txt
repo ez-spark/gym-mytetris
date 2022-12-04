@@ -1,3 +1,12 @@
 - state of the game is a discrete state defined as a list / lists of lists / numpy arrays
 - actions space must be discrete and the actions must be integers and must be a set of numbers that goes from 0 to number of possible actions -1
 - setting the gym functions: step, reset, close
+- creating the variables action_space and observation_space (are required by gym not by ezspark, the ezspark library will not use them, so you can also initialize these variables as None or whatever you want), example:
+
+        self.action_space = gym.spaces.Discrete(number_of_all_possible_actions)
+        # DEFINE THE OBSERVATION SPACE
+        self.observation_space = gym.spaces.Dict(
+            {
+                "agent": gym.spaces.Box(0, number_you_want, shape=(1,), dtype=int),
+            }
+        )
