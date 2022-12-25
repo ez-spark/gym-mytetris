@@ -5,8 +5,5 @@
 
         self.action_space = gym.spaces.Discrete(number_of_all_possible_actions)
         # DEFINE THE OBSERVATION SPACE
-        self.observation_space = gym.spaces.Dict(
-            {
-                "agent": gym.spaces.Box(0, number_you_want, shape=(1,), dtype=int),
-            }
-        )
+        self.observation_space = gym.spaces.Box(0, number_you_want, shape=(1,), dtype=float)
+  
