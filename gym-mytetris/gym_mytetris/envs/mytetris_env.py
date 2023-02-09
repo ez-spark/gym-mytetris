@@ -160,14 +160,7 @@ class MyTetrisEnv(gym.Env):
         """
 
         pygame.font.init()
-        # DEFINE THE ACTION SPACE
-        self.action_space = gym.spaces.Discrete(4)
-        # DEFINE THE OBSERVATION SPACE
-        self.observation_space = gym.spaces.Dict(
-            {
-                "agent": gym.spaces.Box(0, 20*10-1, shape=(1,), dtype=int),
-            }
-        )
+
         # GLOBALS VARS
         self.s_width = 800
         self.s_height = 700
@@ -372,16 +365,25 @@ class MyTetrisEnv(gym.Env):
             actual_score = self.clear_rows(self.grid, self.locked_positions) * 10
             self.score += actual_score
         
-        if actual_score == 0:
-            actual_score = 1
+        #if actual_score == 0:
+        #    actual_score = 1
         if self.check_lost(self.locked_positions):
             done = True
-            actual_score = 0
+            actual_score = -1
         l = [0]*200
         for y in range(20):
             for x in range(10):
                 if self.grid[y][x] != (0,0,0):
                     l[y*10+x] = 1
+        shape_pos = self.convert_shape_format(self.current_piece)
+        for i in range(len(shape_pos)):
+            x, y = shape_pos[i]
+            if y > -1:
+                l[y*10+x] = -1
+        if actual_score == 0:
+            actual_score = 0.1
+        elif actual_score > 0:
+            actual_score*=4
         return l, actual_score, done, {}
     
     def render_local(self):
@@ -399,7 +401,32 @@ class MyTetrisEnv(gym.Env):
         if self.check_lost(self.locked_positions):
             self.draw_text_middle("You Lost! :(", 80, (255, 255, 255), self.win)
             pygame.display.update()
-   
+    
+    def get_new_state(self,state):
+        piece = [0]*4
+        new_state = [0]*40
+        
+        shape_pos = self.convert_shape_format(self.current_piece)
+        count = 0
+        for i in range(len(shape_pos)):
+            x, y = shape_pos[i]
+            if y > -1:
+                piece[count] = float(((20-y)*10+x)/20)
+                state[y*10+x] = 0
+                count+=1
+        for x in range(10):
+            block = False
+            for y in range(4):
+                s = 0
+                for z in range(5):
+                    if state[(y*5+z)*10+x] == 1:
+                        s+=2**z
+                s/=32
+                new_state[y*10+x] = s
+        return [new_state,piece]
+                        
+                
+        
         
     def create_grid(self,locked_positions={}):#ok
         grid = [[(0, 0, 0) for _ in range(10)] for _ in range(20)]
