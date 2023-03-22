@@ -1,6 +1,8 @@
 import pygame
 import random
 import gym
+from gym import spaces
+
 
 # creating the data structure for pieces
 # setting up global vars
