@@ -293,8 +293,7 @@ class MyTetrisEnv(gym.Env):
         self.win = None
         self.first_time = True
         self.action_space = spaces.Discrete(4)
-        self.observation_space = spaces.Box(low=0, high=1, shape=
-                    (200))
+        self.observation_space = spaces.Box(low=0, high=1)
     
     def reset(self):
         self.change_piece = False
